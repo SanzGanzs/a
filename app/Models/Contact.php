@@ -14,6 +14,13 @@ class Contact extends Model
     public $timestamps = true;
     public $incrementing = true;
 
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'phone'
+    ];
+
     /**
      * Get the user that owns the Contact
      *

@@ -27,10 +27,11 @@ class ApiAuthMiddleware
         $user = User::where("token", $token)->first();
         if(!$user){
             $authenticate = false;
+        } else {
+            Auth::login($user);
         }
 
-        Auth::login($user);
-
+        
         if($authenticate){
             return $next($request);
         }else{
